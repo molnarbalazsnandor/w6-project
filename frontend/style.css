@@ -46,4 +46,12 @@ button, textarea, select {
   height: 100vh;
   justify-items: center;
   align-items: center;
+}
+#root .class1 {
+  -webkit-animation: blink-animation 0.5s steps(5, start) infinite;
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }/*# sourceMappingURL=style.css.map */
