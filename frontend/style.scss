@@ -1,26 +1,415 @@
-/* --- start of CSS reset --- */* {  margin: 0;  padding: 0;  border: 0;  outline: none;  box-sizing: border-box;  background: transparent;  font-family: inherit;}a {  text-decoration: none;}a img {  border: none;}button,a {  cursor: pointer;  color: inherit;}textarea {  resize: none;}button,textarea,select {  appearance: none !important;  border-radius: 0;}/* --- end of CSS reset --- */
+body{
+  background-color: rgb(185, 185, 185);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
 
-#root {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px; 
-    background-color: black;
-    color: white;
-    grid-auto-rows: 10vw;
-    grid-auto-columns: 10vh;
-    width: 100vw;
-    height: 100vh;
-    justify-items: center;
-    align-items: center;
 
-    .class1 {
-        -webkit-animation: blink-animation 0.5s steps(5, start) infinite;
-      }
-      @-webkit-keyframes blink-animation {
-        to {
-          visibility: hidden;
-        }
-      }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$columns: 10;
+$rows: 10;
+$cells: $columns * $rows;
+
+@for $i from 1 through $cells {
+  .checkerboard > div:nth-child(#{$i}) {
+    animation-delay: (random()) + 2s;
+  }
+}
+
+.checkerboard {
+  //background-image: url("https://assets.codepen.io/9632/walkrus-gradient.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  height: 100vh;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  font-family: 'Roboto';
+  position: fixed;
+  z-index: 5;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .checkerboard > div {
+    animation-name: poof;
+    animation-duration: 0,01s;
+    animation-fill-mode: forwards;
+    background: rgb(0, 0, 0);
+  }
+  .checkerboard > div:nth-child(even) {
+    background: #000000;
+  
+  }
+}
+
+
+@keyframes poof{
+    to {
+        opacity: 0;
     }
+}
+
+.b{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 0.5s steps(5, start) infinite;
+  font-size: 14px;
+  font-family: 'Roboto';
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+/*Tibor part*/
+
+.section4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin-top: 3vw;
+  position: sticky;
+}
+
+.left-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  width: 50%;
+  font-size: 30px;
+  line-height: 120%;
+}
+
+.right-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: right;
+  width: 50%;
+  font-size: 30px;
+  line-height: 120%;
+}
+
+.number-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  margin: 0px auto 0 auto;
+  font-size: 40vh;
+  font-family: "Oswald", sans-serif;
+}
+
+.number-one {
+  position: absolute;
+  opacity: 0;
+  animation: number-one-anim 1s ease 0s 1 normal;
+}
+
+@keyframes number-one-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.number-two {
+  position: absolute;
+  opacity: 0;
+  animation: number-two-anim 1s ease 1s 1 normal;
+}
+
+@keyframes number-two-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.number-three {
+  position: absolute;
+  opacity: 0;
+  animation: number-three-anim 1s ease 2s 1 normal;
+}
+
+@keyframes number-three-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.number-four {
+  position: absolute;
+  opacity: 0;
+  animation: number-four-anim 1s ease 3s 1 normal;
+}
+
+@keyframes number-four-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.number-five {
+  position: absolute;
+  opacity: 0;
+  animation: number-five-anim 1s ease 4s 1 normal;
+}
+
+@keyframes number-five-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.number-six {
+  position: absolute;
+  opacity: 0;
+  animation: number-six-anim 1s ease 5s 1 normal;
+}
+
+@keyframes number-six-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.number-seven {
+  position: absolute;
+  opacity: 0;
+  animation: number-seven-anim 1s ease 6s 1 normal;
+}
+
+@keyframes number-seven-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.number-eight {
+  position: absolute;
+  opacity: 0;
+  animation: number-eight-anim 1s ease 7s 1 normal;
+}
+
+@keyframes number-eight-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.number-nine {
+  position: absolute;
+  opacity: 0;
+  animation: number-nine-anim 1s ease 8s 1 normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes number-nine-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.left {
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+
+.left .text {
+  animation-name: animate-pop;
+  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+}
+
+.right {
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+.number {
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+.delay-1 {
+  animation-delay: 1s;
+}
+
+.delay-2 {
+  animation-delay: 2s;
+}
+
+.delay-3 {
+  animation-delay: 3s;
+}
+.delay-4 {
+  animation-delay: 4s;
+}
+.delay-5 {
+  animation-delay: 5s;
+}
+.delay-6 {
+  animation-delay: 6s;
+}
+.delay-7 {
+  animation-delay: 7s;
+}
+.delay-8 {
+  animation-delay: 8s;
+}
+.delay-9 {
+  animation-delay: 8.85s;
+}
+
+//Norbi része
+
+li, a, button {
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  position: sticky;
+}
+
+li, a {
+  font-weight: 500;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+.logo {
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  padding-left: 50px;
+}
+
+.nav__links {
+  list-style: none;
+  position: fixed;
+  top: 20px;
+  right: 50px;
+}
+
+.nav__links li {
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  background-color: grey;
+  color: black;
+  border-radius: 80px;
+}
+
+button {
+  padding: 7px 20px;
+  background-color: black;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  position: fixed;
+  top: 14px;
+  right: 200px;
+}
+
+.main-text {
+  font-size: 180px;
+  padding-left: 50px;
+  letter-spacing: -2px;
+  line-height: 0.9;
+}
+
+#index-logos {
+  width: 100vw;
+  height: auto;
+  display: flex;
+
+  .index-container {
+    display: flex;
+
+    .index-cont-pics {
+      justify-content: center;
+    }
+  }
+
+}
